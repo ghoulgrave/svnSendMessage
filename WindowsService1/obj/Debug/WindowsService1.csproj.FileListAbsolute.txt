@@ -1,0 +1,7 @@
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\bin\Debug\WindowsService1.exe.config
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\bin\Debug\WindowsService1.exe
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\bin\Debug\WindowsService1.pdb
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\obj\Debug\WindowsService1.ProjectInstaller.resources
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\obj\Debug\WindowsService1.csproj.GenerateResource.Cache
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\obj\Debug\WindowsService1.exe
+E:\0A项目资料\DailyRecord\WindowsService1\WindowsService1\obj\Debug\WindowsService1.pdb
