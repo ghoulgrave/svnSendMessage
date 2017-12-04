@@ -15,6 +15,7 @@ namespace WindowsService1
 {
     public partial class Service1 : ServiceBase
     {
+        private int totle =0;
         public Service1()
         {
             InitializeComponent();
@@ -31,12 +32,19 @@ namespace WindowsService1
         }
         private void Timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+
+
             string week = DateTime.Now.DayOfWeek.ToString("d");
             if (week == "0" || week == "6")
             {
             }
             else
             {
+                if (totle == 0) {
+                    ido();
+                    totle++;
+                }
+
                 // 得到 hour minute second  如果等于某个值就开始执行某个程序。  
                 int intHour = e.SignalTime.Hour;
                 int intMinute = e.SignalTime.Minute;
@@ -48,19 +56,21 @@ namespace WindowsService1
                 // 设置　每天的8：30开始执行程序  
                 if (intHour == iHour && intMinute == iMinute)
                 {
-                    Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                    string name = config.AppSettings.Settings["names"].Value;
-                    string svnUrl = config.AppSettings.Settings["svnUrl"].Value;
-                    
-
-                    foreach (string str in name.Split(','))
-                    {
-                        Thread.Sleep(10000);
-                        this.doSomething(svnUrl+str.Trim(),str);
-                    }
+                    ido();
                 }
             }
 
+        }
+
+        private void ido(){
+            Configuration config = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            string name = config.AppSettings.Settings["names"].Value;
+            string svnUrl = config.AppSettings.Settings["svnUrl"].Value;
+            foreach (string str in name.Split(','))
+            {
+                Thread.Sleep(10000);
+                this.doSomething(svnUrl+str.Trim(),str);
+            }
         }
 
         private void doSomething(string svnUrl,String name)
@@ -68,7 +78,7 @@ namespace WindowsService1
             int iNum = 0;
             string retString = "";
             bool flag = true;
-            while (flag)
+            while (flag && (iNum <20))
             {
                 iNum ++;
                 try
